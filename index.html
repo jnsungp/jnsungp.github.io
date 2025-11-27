@@ -83,7 +83,7 @@
               </tbody>
             </table>
 
-            <!-- Publications -->
+            <!-- Publications & Preprints -->
             <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;">
               <tbody>
                 <tr>
@@ -97,27 +97,28 @@
                   <td style="padding:8px;width:30%;vertical-align:middle">
                     <div class="one">
                       <div class="two">
-                        <img src="images/bicql-thumbnail.png"
-                             style="width:140%;margin-top:10px;border-radius:10px;border:1px solid #EEE;"
-                             alt="BiCQL thumbnail">
+                        <video style="width:140%;margin-top:10px;" muted autoplay loop playsinline>
+                          <source src="images/BICQL.mp4" type="video/mp4">
+                          Your browser does not support the video tag.
+                        </video>
                       </div>
                     </div>
                   </td>
                   <td style="padding:16px;width:70%;vertical-align:top">
-                    <a href="#">
+                    <a href="https://arxiv.org/abs/XXXXXXXX">
                       <b>BiCQL-ML: A Bi-Level Conservative Q-Learning Framework for Maximum Likelihood IRL</b>
                     </a>
                     <br>
                     <strong>Junsung Park</strong>
-                    <!-- , (Collaborators names if any) -->
                     <br>
-                    <em>Preprint / Under Review</em>
+                    <em>IEEE MIT URTC, Poster Presentation</em>, 2025
                     <br>
-                    <a href="#">[Paper (Coming Soon)]</a>
+                    <a href="https://arxiv.org/abs/XXXXXXXX">[arXiv]</a>
+                    <!-- / <a href="https://your-project-page-url">[Project Page]</a> -->
                     <p></p>
                     <p>
-                      Proposed a <strong>policy-free offline Inverse Reinforcement Learning (IRL)</strong> framework that addresses 
-                      reward ambiguity and distribution shift. By formulating a bi-level optimization problem that jointly learns 
+                      We propose a <strong>policy-free offline Inverse Reinforcement Learning (IRL)</strong> framework that addresses
+                      reward ambiguity and distribution shift. By formulating a bi-level optimization problem that jointly learns
                       a conservative Q-function and a reward function, BiCQL-ML improves robustness and expert-likeness in offline settings.
                     </p>
                   </td>
@@ -143,7 +144,6 @@
                     <br>
                     <em>In Preparation</em>
                     <br>
-                    <!-- <a href="#">[Project Page (Coming Soon)]</a> -->
                     <p></p>
                     <p>
                       Investigating the efficacy of incorporating dense tactile and force feedback into diffusion-based policies. 
@@ -164,12 +164,12 @@
                   </td>
                 </tr>
 
-                <!-- Unitree G1 Dataset (with video like Minwoo template) -->
+                <!-- Unitree G1 Dataset -->
                 <tr>
                   <td style="padding:8px;width:30%;vertical-align:middle">
                     <div class="one">
                       <div class="two">
-                        <video style="width:140%;margin-top:10px;" muted autoplay loop playsinline>
+                        <video style="width:100%;margin-top:10px;" muted autoplay loop playsinline>
                           <source src="images/g1_dataset_demo.mp4" type="video/mp4">
                           Your browser does not support the video tag.
                         </video>
@@ -190,9 +190,35 @@
                     <p></p>
                     <p>
                       Engineered a large-scale multimodal dataset generation pipeline for the <strong>Unitree G1 humanoid</strong> by 
-                      integrating MuJoCo, RoboCasa, and cuRobo. The dataset features synchronized RGB-D, contact-state, 
-                      8D force–torque feedback, and proprioceptive data to facilitate the training of <strong>foundation robot policies</strong> 
-                      in simulated environments.
+                      integrating MuJoCo, RoboCasa, and cuRobo. The dataset provides synchronized RGB-D, contact-state, 
+                      8D force–torque, and proprioceptive signals to support training and evaluation of <strong>foundation robot policies</strong>.
+                    </p>
+                  </td>
+                </tr>
+
+                <!-- Active Rainwater Removal System -->
+                <tr>
+                  <td style="padding:8px;width:30%;vertical-align:middle">
+                    <div class="one">
+                      <div class="two">
+                        <img src="images/rainwater_system.jpg"
+                             style="width:140%;margin-top:10px;border-radius:10px;border:1px solid #EEE;"
+                             alt="Active Rainwater Removal System">
+                      </div>
+                    </div>
+                  </td>
+                  <td style="padding:16px;width:70%;vertical-align:top">
+                    <b>Active Rainwater Removal System</b>
+                    <br>
+                    Mechatronics Design Competition, Awarded — 2023
+                    <p></p>
+                    <p>
+                      Developed a centrifugal rainwater removal device powered by a high-torque DC motor and a BTS7960 high-current H-bridge driver, 
+                      integrating mechanical design with a custom motor control circuit.
+                    </p>
+                    <p>
+                      As team lead, coordinated system integration and optimization to achieve fast water removal, low noise, and portable operation, 
+                      contributing to the project’s award-winning performance.
                     </p>
                   </td>
                 </tr>
