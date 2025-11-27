@@ -9,37 +9,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    
   </head>
 
   <body>
     <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
       <tbody>
-        <tr style="padding:0px">
-          <td style="padding:0px">
+        <tr>
+          <td>
 
-            <!-- Header / Intro -->
-            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <!-- Header Section -->
+            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin:auto;">
               <tbody>
-                <tr style="padding:0px">
+                <tr>
+                  <!-- LEFT: Intro -->
                   <td style="padding:2.5%;width:63%;vertical-align:middle">
-                    <p class="name" style="text-align: center;">
-                      Junsung Park
-                    </p>
+                    <p class="name" style="text-align:center;">Junsung Park</p>
 
                     <p>
                       I am an undergraduate student in the
                       <a href="https://ece.snu.ac.kr/en">Department of Electrical and Computer Engineering</a>
                       at Seoul National University, with a minor in Mechanical Engineering.
-                      I conduct research in the
-                      <a href="http://rllab.snu.ac.kr/">Robot Learning Lab (RL LAB)</a> at SNU,
-                      advised by Prof.
-                      <a href="https://scholar.google.com/citations?user=N0ZCT00AAAAJ&hl=en">Songhwai Oh</a>.
-                      My research interests include robot learning, vision–language–action models,
-                      cross-embodiment policy transfer, and offline reinforcement learning.
+                      I conduct research at the SNU
+                      <a href="https://scholar.google.com/citations?user=N0ZCT00AAAAJ&hl=en">RLLAB</a>,
+                      advised by Prof. <a href="https://scholar.google.com/citations?user=N0ZCT00AAAAJ&hl=en">Songhwai Oh</a>.
                     </p>
 
-                    <p style="text-align:center">
+                    <p>
+                      My research interests include robot learning, vision–language–action models,
+                      cross-embodiment policy transfer, multimodal representation learning,
+                      and offline reinforcement learning.
+                    </p>
+
+                    <p style="text-align:center;">
                       <a href="mailto:night1115@snu.ac.kr">Email</a> &nbsp;/&nbsp;
                       <a href="data/JunsungPark_CV.pdf">CV</a> &nbsp;/&nbsp;
                       <a href="https://www.linkedin.com/in/junsung-park">LinkedIn</a> &nbsp;/&nbsp;
@@ -47,95 +48,92 @@
                     </p>
                   </td>
 
+                  <!-- RIGHT: Profile Photo -->
                   <td style="padding:2.5%;width:37%;max-width:37%">
                     <a href="images/JunsungPark.jpg">
-                      <img
-                        style="width:100%;max-width:100%;object-fit:cover;border-radius:50%;"
-                        alt="profile photo"
-                        src="images/JunsungPark.jpg">
+                      <img src="images/JunsungPark.jpg"
+                           style="width:100%;object-fit:cover;border-radius:50%;"
+                           alt="profile photo">
                     </a>
                   </td>
                 </tr>
               </tbody>
             </table>
 
+
+
             <!-- Research Section -->
-            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin:auto;">
               <tbody>
                 <tr>
-                  <td style="padding:16px;width:100%;vertical-align:middle">
+                  <td style="padding:16px;">
                     <h2>Research</h2>
                     <p>
-                      My research aims to build robust and generalizable robot autonomy.
-                      I focus on cross-embodiment policy adaptation, multimodal representation learning,
-                      and learning-based control.
-                      I am particularly interested in leveraging vision, depth, and contact-force signals
-                      to develop manipulation policies that remain stable and reliable across diverse
-                      robot embodiments.
+                      My research aims to build robust and generalizable robot autonomy by leveraging
+                      multimodal sensing (RGB, depth, contact-force), foundation robot policies, and
+                      cross-embodiment learning. I focus on Learning-Based Control, robotic manipulation,
+                      and scalable policy adaptation across different robot morphologies.
                     </p>
                   </td>
                 </tr>
               </tbody>
             </table>
 
-            <!-- Projects / Datasets / Publications -->
-            <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-              <tbody>
 
-                <!-- Dataset Card -->
+
+            <!-- Dataset Card -->
+            <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin:auto;">
+              <tbody>
                 <tr>
+                  <!-- LEFT: Dataset Video -->
                   <td style="padding:16px;width:20%;vertical-align:middle">
-                    <a href="https://huggingface.co/jnsungp">
-                      <img
-                        src="images/g1-dataset-thumb.png"
-                        style="width:100%;border-radius:10px;"
-                        alt="G1 Dataset Thumbnail">
-                    </a>
+                    <video
+                      src="images/g1_dataset.mp4"
+                      autoplay
+                      muted
+                      loop
+                      playsinline
+                      style="width:100%;border-radius:10px;">
+                    </video>
                   </td>
+
+                  <!-- RIGHT: Dataset Description -->
                   <td style="padding:8px;width:80%;vertical-align:middle">
                     <a href="https://huggingface.co/jnsungp">
-                      <span class="papertitle">
-                        Unitree G1 Pick-and-Place Multimodal Dataset
-                      </span>
+                      <span class="papertitle">Unitree G1 Pick-and-Place Multimodal Dataset</span>
                     </a>
                     <br>
                     <strong>Junsung Park</strong>
                     <br>
                     <em>Multimodal Robot Manipulation Dataset</em>
                     <br>
-                    <a href="https://huggingface.co/jnsungp">Dataset</a>
-                    &nbsp;/&nbsp;
+                    <a href="https://huggingface.co/jnsungp">Dataset</a> /
                     <a href="https://huggingface.co/jnsungp">HuggingFace Profile</a>
-                    <p></p>
 
                     <p>
                       A large-scale multimodal manipulation dataset built using a customized
-                      MuJoCo + RoboCasa + cuRobo pipeline.
-                      Includes synchronized RGB, depth, binary contact-state, 8D force–torque signals,
-                      proprioception, and motion-planned trajectories for training and evaluating
+                      MuJoCo + RoboCasa + cuRobo pipeline. Includes synchronized RGB, depth,
+                      binary contact-state, 8D force–torque signals, proprioception,
+                      and motion-planned trajectories for training and evaluating
                       foundation robot policies on the Unitree G1 humanoid.
                     </p>
-
-                    <!-- Dataset Demo Video -->
-                    <video
-                      src="images/g1_dataset_demo.mp4"
-                      autoplay
-                      muted
-                      loop
-                      playsinline
-                      style="width:55%;border-radius:10px;display:block;margin-left:auto;margin-right:auto;">
-                    </video>
                   </td>
                 </tr>
+              </tbody>
+            </table>
 
-                <!-- Paper 1 -->
+
+
+            <!-- Paper 1 -->
+            <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin:auto;">
+              <tbody>
                 <tr>
                   <td style="padding:16px;width:20%;vertical-align:middle">
-                    <img
-                      src="images/bicql-thumbnail.png"
-                      style="width:100%;border-radius:10px;"
-                      alt="BiCQL thumbnail">
+                    <img src="images/bicql-thumbnail.png"
+                         style="width:100%;border-radius:10px;"
+                         alt="BiCQL thumbnail">
                   </td>
+
                   <td style="padding:8px;width:80%;vertical-align:middle">
                     <a href="#">
                       <span class="papertitle">
@@ -149,6 +147,7 @@
                     <em>arXiv (preprint)</em>
                     <br>
                     <a href="#">Paper (coming soon)</a>
+
                     <p>
                       A policy-free offline IRL framework that jointly optimizes rewards and
                       conservative Q-functions via bi-level optimization,
@@ -156,15 +155,21 @@
                     </p>
                   </td>
                 </tr>
+              </tbody>
+            </table>
 
-                <!-- Paper 2 -->
+
+
+            <!-- Paper 2 -->
+            <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin:auto;">
+              <tbody>
                 <tr>
                   <td style="padding:16px;width:20%;vertical-align:middle">
-                    <img
-                      src="images/g1-modality.png"
-                      style="width:100%;border-radius:10px;"
-                      alt="G1 Modality">
+                    <img src="images/g1-modality.png"
+                         style="width:100%;border-radius:10px;"
+                         alt="G1 Modality">
                   </td>
+
                   <td style="padding:8px;width:80%;vertical-align:middle">
                     <a href="#">
                       <span class="papertitle">
@@ -177,17 +182,20 @@
                     <em>In preparation (Target: RSS 2026)</em>
                     <br>
                     <a href="#">Paper (coming soon)</a>
+
                     <p>
-                      A study on incorporating depth, binary contact, and 8D force feedback into
-                      diffusion-based foundation robot policies for cross-embodiment manipulation
-                      on the Unitree G1.
+                      A study on incorporating depth, binary contact, and 8D force feedback
+                      into diffusion-based foundation robot policies for cross-embodiment
+                      manipulation on the Unitree G1.
                     </p>
                   </td>
                 </tr>
-
               </tbody>
             </table>
 
           </td>
         </tr>
       </tbody>
+    </table>
+  </body>
+</html>
