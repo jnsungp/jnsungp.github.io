@@ -78,39 +78,42 @@
               </tbody>
             </table>
 
-            <!-- Datasets Section -->
-            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <!-- Projects / Datasets / Publications -->
+            <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;">
               <tbody>
 
+                <!-- Dataset Card -->
                 <tr>
-                  <td style="padding:16px;width:100%;vertical-align:middle">
-                    <h2>Datasets</h2>
-                    <p>
-                      I build multimodal manipulation datasets for training and evaluating
-                      foundation robot policies. My datasets emphasize high-quality contact modeling,
-                      depth perception, force feedback, and trajectory diversity.
-                    </p>
+                  <td style="padding:16px;width:20%;vertical-align:middle">
+                    <a href="https://huggingface.co/jnsungp">
+                      <img
+                        src="images/g1-dataset-thumb.png"
+                        style="width:100%;border-radius:10px;"
+                        alt="G1 Dataset Thumbnail">
+                    </a>
                   </td>
-                </tr>
-
-                <!-- G1 Dataset Card -->
-                <tr>
-                  <td style="padding:8px;width:100%;vertical-align:middle">
-                    <span class="papertitle">
-                      Unitree G1 Pick-and-Place Multimodal Dataset
-                    </span>
+                  <td style="padding:8px;width:80%;vertical-align:middle">
+                    <a href="https://huggingface.co/jnsungp">
+                      <span class="papertitle">
+                        Unitree G1 Pick-and-Place Multimodal Dataset
+                      </span>
+                    </a>
                     <br>
-                    <strong>Creator: Junsung Park</strong>
+                    <strong>Junsung Park</strong>
                     <br>
-                    <em>Hosted on HuggingFace</em>
+                    <em>Multimodal Robot Manipulation Dataset</em>
                     <br>
+                    <a href="https://huggingface.co/jnsungp">Dataset</a>
+                    &nbsp;/&nbsp;
                     <a href="https://huggingface.co/jnsungp">HuggingFace Profile</a>
+                    <p></p>
 
                     <p>
-                      A large-scale multimodal simulation dataset designed for cross-embodiment
-                      manipulation with the Unitree G1 humanoid.
-                      Includes RGB, depth, contact-state, 8D force–torque signals, end-effector poses,
-                      and cuRobo-generated trajectories built on a customized MuJoCo + RoboCasa pipeline.
+                      A large-scale multimodal manipulation dataset built using a customized
+                      MuJoCo + RoboCasa + cuRobo pipeline.
+                      Includes synchronized RGB, depth, binary contact-state, 8D force–torque signals,
+                      proprioception, and motion-planned trajectories for training and evaluating
+                      foundation robot policies on the Unitree G1 humanoid.
                     </p>
 
                     <!-- Dataset Demo Video -->
@@ -120,18 +123,10 @@
                       muted
                       loop
                       playsinline
-                      style="width:70%;border-radius:12px;display:block;margin-left:auto;margin-right:auto;">
+                      style="width:55%;border-radius:10px;display:block;margin-left:auto;margin-right:auto;">
                     </video>
-
                   </td>
                 </tr>
-
-              </tbody>
-            </table>
-
-            <!-- Publications / Papers -->
-            <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-              <tbody>
 
                 <!-- Paper 1 -->
                 <tr>
@@ -196,6 +191,3 @@
           </td>
         </tr>
       </tbody>
-    </table>
-  </body>
-</html>
