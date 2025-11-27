@@ -20,105 +20,109 @@
             <tr style="padding:0px">
               <td style="padding:2.5%;width:63%;vertical-align:middle">
                 <p class="name" style="text-align: center;">
-                  Subi Lee
+                  Junsung Park
                 </p>
+
                 <p>
-    I'm an undergraduate student at <a href="https://www.gist.ac.kr/en/main.html">GIST</a>. I'm currently working at Yonsei <a href="https://youngwoon.github.io/">RLLAB</a> advised by Prof. <a href="https://youngwoon.github.io/youngwoon">Youngwoon Lee</a>. Previously, I focused on robotics learning in GIST AILAB advised by Prof. Kyoobin Lee.
+                  I am an undergraduate student at 
+                  <a href="https://en.snu.ac.kr/">Seoul National University</a>.  
+                  I am currently conducting research in the 
+                  <a href="https://youngwoon.github.io/">RLLAB</a> at Yonsei University, advised by  
+                  Prof. <a href="https://youngwoon.github.io/youngwoon/">Youngwoon Lee</a>.  
+                  My research interests include robot learning, vision–language–action models, 
+                  cross-embodiment policy adaptation, and offline reinforcement learning.
                 </p>
+
                 <p style="text-align:center">
-                  <a href="mailto:subi.lee122@gmail.com">Email</a> &nbsp;/&nbsp;
-                  <a href="data/CV_Subi Lee.pdf">CV</a> &nbsp;/&nbsp;
-                  <a href="https://www.linkedin.com/in/subi-lee/">Linkedin</a> &nbsp;/&nbsp;
-                  <a href="https://github.com/Lee-Subi">Github</a>
+                  <a href="mailto:night1115@snu.ac.kr">Email</a> &nbsp;/&nbsp;
+                  <a href="data/JunsungPark_CV.pdf">CV</a> &nbsp;/&nbsp;
+                  <a href="https://www.linkedin.com/in/junsung-park">LinkedIn</a> &nbsp;/&nbsp;
+                  <a href="https://github.com/jnsungp">Github</a>
                 </p>
               </td>
+
               <td style="padding:2.5%;width:37%;max-width:37%">
-                <a href="images/SubiLee.jpg">
+                <a href="images/profile.jpg">
                   <img style="width:100%;max-width:100%;object-fit:cover; border-radius:50%;" 
                        alt="profile photo" 
-                       src="images/SubiLee.jpg">
+                       src="images/profile.jpg">
                 </a>
               </td>
+
             </tr>
           </tbody></table>
+
+
+          <!-- Research Section -->
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
               <tr>
               <td style="padding:16px;width:100%;vertical-align:middle">
                 <h2>Research</h2>
                 <p>
-                  My research focuses on reinforcement learning, with an emphasis on multi-task learning, unsupervised skill discovery, and robotic manipulation. I am particularly interested in improving generalization, sample efficiency, and the integration of large-scale vision-language models with control policies.
+                  My research focuses on robot learning, cross-embodiment policy transfer, 
+                  multimodal representation learning, and offline RL. 
+                  I aim to build robust manipulation policies that leverage vision, depth, 
+                  and contact-force signals to generalize across robotic embodiments.
                 </p>
               </td>
             </tr>
           </tbody></table>
+
+
+          <!-- Paper 1 -->
           <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <tr>
+            <td style="padding:16px;width:20%;vertical-align:middle">
+              <img 
+                src="images/bicql-thumbnail.png"
+                style="width:100%;border-radius:10px;"
+                alt="BiCQL thumbnail">
+            </td>
+            <td style="padding:8px;width:80%;vertical-align:middle">
+              <a href="https://arxiv.org/abs/2502.12345">
+                <span class="papertitle">BiCQL-ML: A Bi-Level Conservative Q-Learning Framework for Maximum Likelihood Inverse Reinforcement Learning</span>
+              </a>
+              <br>
+              <strong>Junsung Park</strong>
+              <br>
+              <em>arXiv 2025</em>
+              <br>
+              <a href="https://arxiv.org/abs/2502.12345">Paper</a>
+              <p>
+                A policy-free offline IRL framework that jointly optimizes rewards and conservative Q-functions 
+                via bi-level optimization, improving robustness and expert-likeness under dataset shift.
+              </p>
+            </td>
+          </tr>
 
 
-    <tr>
-      <td style="padding:16px;width:20%;vertical-align:middle">
-        <video
-          src="images/amped.gif"
-          autoplay
-          muted
-          loop
-          playsinline
-          preload="auto"
-          style="width:100%; display:block; border-radius:10px;"
-          poster="images/amped_poster.png">
-        </video>
-      </td>
-      <td style="padding:8px;width:80%;vertical-align:middle">
-        <a href="https://geonwoo.me/amped/">
-          <span class="papertitle">AMPED: Adaptive Multi-Objective Projection for balancing Exploration and skill Diversification</span>
-        </a>
-        <br>
-        <a href="https://geonwoo.me/">Geonwoo Cho</a>*,
-        <a>Jaemoon Lee</a>*,
-        <a href="https://jaegyunn.github.io/">Jaegyun Im</a>,
-		<strong>Subi Lee</strong>,
-        <a href="https://scholar.google.com/citations?hl=en&user=6CeMbuMAAAAJ">Jihwan Lee</a>,
-        <a href="https://sundong.kim/">Sundong Kim</a>
-        <br>
-        <em>Under Review</em>,
-        <br>
-        <a href="https://arxiv.org/abs/2506.05980">Paper</a>
-        /
-        <a href="https://geonwoo.me/amped/">Website</a>
-        /
-        <a href="https://github.com/Cho-Geonwoo/amped">Code</a>
-        <p></p>
-        <p>
-          AMPED is a framework for skill-based reinforcement learning that simultaneously maximizes state coverage and skill diversity through several carefully designed components.
-        </p>
-      </td>
-    </tr>
+          <!-- Paper 2 -->
+          <tr>
+            <td style="padding:16px;width:20%;vertical-align:middle">
+              <img 
+                src="images/g1-modality.png" 
+                style="width:100%;border-radius:10px;"
+                alt="G1 Modality">
+            </td>
+            <td style="padding:8px;width:80%;vertical-align:middle">
+              <a href="#">
+                <span class="papertitle">Modality-Augmented Fine-Tuning of Foundation Robot Policies for Unitree G1</span>
+              </a>
+              <br>
+              <strong>Junsung Park</strong>
+              <br>
+              <em>In preparation (Target: RSS 2026)</em>
+              <br>
+              <a href="#">Paper (coming soon)</a>
+              <p>
+                A study on incorporating depth, binary contact, and 8D force feedback into 
+                diffusion-based foundation robot policies for cross-embodiment manipulation on the Unitree G1.
+              </p>
+            </td>
+          </tr>
 
-    <tr>
-      <td style="padding:16px;width:20%;vertical-align:middle">
-        <img 
-          src="images/simnorm_poster.png" 
-          alt="simnorm Poster" 
-          style="width:100%; display:block; border-radius:10px;">
-      </td>
-      <td style="padding:8px;width:80%;vertical-align:middle">
-        <a href="data/SimNorm.pdf">
-          <span class="papertitle">Evaluating Simplicial Normalization in Multi-Task Reinforcement Learning</span>
-        </a>
-        <br>
-        <a href="https://geonwoo.me/">Geonwoo Cho</a>*,
-        <strong>Subi Lee</strong>*,
-        <a>Jaemoon Lee</a>
-        <br>
-        <em>Korea Software Conference 2024</em>,
-        <br>
-        <a href="data/SimNorm.pdf">Paper</a>
-        <p></p>
-        <p>
-          This research investigates Simplicial Normalization (SimNorm) as an activation function for multi-task reinforcement learning, showing that it underperforms ReLU in Meta-world benchmarks.
-        </p>
-      </td>
-    </tr>
-            
+
+          <!-- Footer -->
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
               <td style="padding:0px">
@@ -129,8 +133,9 @@
               </td>
             </tr>
           </table>
+
         </td>
       </tr>
-    </table>
+    </tbody></table>
   </body>
 </html>
