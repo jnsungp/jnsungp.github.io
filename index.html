@@ -92,6 +92,7 @@
                   </td>
                 </tr>
 
+                
                 <!-- BiCQL-ML -->
                 <tr>
                   <td style="padding:8px;width:30%;vertical-align:middle">
@@ -138,7 +139,7 @@
                   </td>
                   <td style="padding:16px;width:70%;vertical-align:top">
                     <a href="https://arxiv.org/abs/2512.01358">
-                      <b>Modality-Augmented Fine-Tuning of Foundation Robot Policies</b>
+                      <b>Modality-Augmented Fine-Tuning of Foundation Robot Policies for Cross-Embodiment Manipulation on GR1 and G1</b>
                     </a>
                     <br>
                     <strong>Junsung Park</strong>
@@ -148,11 +149,8 @@
                     <a href="https://arxiv.org/abs/2512.01358">[arXiv]</a>
                     <p></p>
                     <p>
-                      Investigating modality-conditioned diffusion policies for cross-embodiment adaptation on the Unitree G1 humanoid.
-                      The system integrates RGB-D, tactile states, and force–torque feedback to improve action stability and manipulation robustness.
-                    </p>
-                    <p>
-                      Demonstrates significant performance gains via contact-state fusion and depth-aware conditioning strategies.
+                      We introduce a modality-augmented fine-tuning framework that adapts foundation robot policies to diverse embodiments (GR1, Unitree G1) by fusing proprioception, depth, and contact-force modalities. 
+                      This approach substantially boosts manipulation performance on contact-rich pick-and-place tasks, achieving a zero-shot success rate of 94% on the Unitree G1.
                     </p>
                   </td>
                 </tr>
@@ -190,7 +188,7 @@
                     <em>Wearable Robotics Project</em>
                     <p></p>
                     <p>
-                      Developed a wearable rehabilitation glove integrating a rack-and-pinion actuator, e-gain soft sensor, and IMU-based feedback control for adaptive hand motion assistance.
+                      Developed a wearable rehabilitation glove for stroke patients, integrating a rack-and-pinion actuator, e-gain soft sensor, and IMU-based feedback control to provide adaptive thumb motion assistance.
                     </p>
                   </td>
                 </tr>
@@ -221,9 +219,8 @@
                     <a href="https://huggingface.co/jnsungp">[Code]</a>
                     <p></p>
                     <p>
-                      Built a large-scale multimodal dataset generation pipeline integrating MuJoCo, RoboCasa, and cuRobo.
-                      Provides synchronized RGB-D, contact-state, force–torque, and proprioceptive data for training
-                      foundation robot policies.
+                      Built a large-scale multimodal dataset generation pipeline integrating Robosuite, RoboCasa, and cuRobo.
+                      Provides synchronized RGB-D, contact-force, and proprioceptive data for training foundation robot policies.
                     </p>
                   </td>
                 </tr>
