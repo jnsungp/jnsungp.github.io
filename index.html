@@ -183,9 +183,13 @@
                   <td style="padding:16px;width:70%;vertical-align:top">
                     <b>Wearable Rehabilitation Glove</b>
                     <br>
-                    <strong>Junsung Park</strong>, Injae John, Sungjae Hwang
-                    <br>
-                    <em>Wearable Robotics Project</em>
+                    <strong>Junsung Park</strong>, Injae John, Sungjae Hwang, 
+                    <a href="https://scholar.google.com/citations?user=kBsTE7AAAAAJ&hl=ko" target="_blank" style="text-decoration:none; color:#000;">
+                      <strong>Yong-Lae Park</strong>
+                    </a>
+                    <a href="https://softrobotics.snu.ac.kr/" target="_blank" style="text-decoration:none; color:#555;">
+                      Soft Robotics & Bionics Lab (SRBL), Seoul National University
+                    </em>
                     <p></p>
                     <p>
                       Developed a wearable rehabilitation glove for stroke patients, integrating a rack-and-pinion actuator, e-gain soft sensor, and IMU-based feedback control to provide adaptive thumb motion assistance.
@@ -198,10 +202,9 @@
                   <td style="padding:8px;width:30%;vertical-align:middle">
                     <div class="one">
                       <div class="two">
-                        <video style="width:140%;margin-top:8px;" muted autoplay loop playsinline>
-                          <source src="images/g1_dataset_demo.mp4" type="video/mp4">
-                          Your browser does not support the video tag.
-                        </video>
+                        <img src="images/g1_data.png"
+                             style="width:140%;margin-top:8px;border-radius:10px;border:1px solid #EEE;"
+                             alt="G1 DATA">
                       </div>
                     </div>
                   </td>
@@ -213,17 +216,45 @@
                     <br>
                     <strong>Junsung Park</strong>
                     <br>
-                    <em>Open Source Project &amp; Dataset</em>, 2024–
+                    <em>Open Source Project &amp; Dataset</em>, 2025
                     <br>
-                    <a href="https://huggingface.co/jnsungp">[Dataset]</a> /
-                    <a href="https://huggingface.co/jnsungp">[Code]</a>
+                    <a href="https://huggingface.co/jnsungp">[Dataset]</a>
                     <p></p>
                     <p>
-                      Built a large-scale multimodal dataset generation pipeline integrating Robosuite, RoboCasa, and cuRobo.
-                      Provides synchronized RGB-D, contact-force, and proprioceptive data for training foundation robot policies.
+                      Built a large-scale multimodal dataset-generation pipeline integrating Robosuite, RoboCasa, and cuRobo, producing synchronized RGB-D, contact-force, and proprioceptive data for training foundation robot policies.
                     </p>
                   </td>
                 </tr>
+
+                <!-- G1 Retargeting Project -->
+                <tr>
+                  <td style="padding:8px;width:30%;vertical-align:middle">
+                    <div class="one">
+                      <div class="two">
+                        <video style="width:140%;object-fit: cover;border-radius:10px;margin-top:4px;" muted autoplay loop playsinline>
+                          <source src="images/g1_retarget.mp4" type="video/mp4">
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                    </div>
+                  </td>
+                  
+                  <td style="padding:16px;width:70%;vertical-align:top">
+                    <b>Retargeting Human Motion to Unitree G1</b>
+                    <br>
+                    <strong>Junsung Park</strong>
+                    <br>
+                    <em>Humanoid Imitation Learning Project</em>, 2025
+                    <p></p>
+                    <p>
+                      Developed a whole-body imitation learning pipeline that retargets human–object interaction motions from the OMOMO Dataset to the Unitree G1 using SMPL-based preprocessing and gradient optimization.
+                      Trained ASAP-enhanced imitation policies in Isaac Gym, enabling large-scale whole-body behavior reproduction despite limited fine-grained contact modeling.
+                    </p>
+                  </td>
+                </tr>
+
+                
+                
 
                 <!-- Active Rainwater Removal System -->
                 <tr>
@@ -243,12 +274,7 @@
                     Mechatronics Design Competition, Awarded — 2023
                     <p></p>
                     <p>
-                      Developed a centrifugal umbrella rainwater removal device using a high-torque DC motor
-                      and a BTS7960 high-current driver.
-                    </p>
-                    <p>
-                      Led system integration and control circuit design, achieving fast water removal,
-                      low noise, and portable operation.
+                      Developed a centrifugal umbrella system that actively removes rainwater using a high-torque motor and rotational airflow. Led the system design and integration, achieving fast water removal, low noise, and portable operation.
                     </p>
                   </td>
                 </tr>
