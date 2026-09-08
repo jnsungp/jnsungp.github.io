@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Junsung Park">
+    <meta name="description" content="Junsung Park — undergraduate student at Seoul National University">
+    <meta property="og:title" content="Junsung Park">
+    <meta property="og:description" content="Undergraduate student at Seoul National University">
+    <meta property="og:image" content="https://junsungpark.github.io/files/JunsungPark.jpg">
+    <meta property="og:url" content="https://junsungpark.github.io/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Junsung Park">
+    <meta name="twitter:description" content="Undergraduate student at Seoul National University">
+    <meta name="twitter:image" content="https://junsungpark.github.io/files/JunsungPark.jpg">
+    <title>Junsung Park</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap">
+    <link rel="stylesheet" href="style.css?v=1.0">
+    <script>
+        function scrollToContact() {
+            document.getElementById("contact").scrollIntoView({behavior: "smooth", block: "start"});
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var header = document.querySelector(".header");
+            var nav = document.getElementById("sticky-nav");
+            var observer = new IntersectionObserver(function(entries) {
+                nav.classList.toggle("visible", !entries[0].isIntersecting);
+            }, {threshold: 0});
+            observer.observe(header);
+        });
+    </script>
+</head>
+<body>
+<nav class="sticky-nav noselect" id="sticky-nav">
+    <div class="sticky-nav-content">
+        <a class="sticky-nav-name bold" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">Junsung Park</a>
+        <div class="sticky-nav-links">
+            <a href="#contact" onclick="scrollToContact(); return false;">Email</a>
+            <a href="https://www.linkedin.com/in/junsung-park-26a34b33b/">LinkedIn</a>
+            <a href="https://huggingface.co/jnsungp">HuggingFace</a>
+            <a href="files/CV_JunsungPark.pdf">CV</a>
+        </div>
+    </div>
+</nav>
+
+<div class="header noselect">
+    <div class="header-div content row">
+        <div class="header-profile-picture" role="img" aria-label="Portrait of Junsung Park"></div>
+        <div class="header-text">
+            <div class="header-name">
+                <h1>Junsung Park</h1>
+            </div>
+            <div class="header-subtitle">
+                Undergraduate student at Seoul National University
+            </div>
+            <div class="header-links">
+                <a class="social" href="#contact" onclick="scrollToContact(); return false;" aria-label="Email" title="Email">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 4H2C.9 4 0 4.9 0 6v12c0 1.1.9 2 2 2h20c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-10 6L2 8V6l10 6 10-6v2z"/></svg>
+                </a>
+                <a class="social" href="https://www.linkedin.com/in/junsung-park-26a34b33b/" aria-label="LinkedIn" title="LinkedIn">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+                </a>
+                <a class="social" href="https://huggingface.co/jnsungp" aria-label="Hugging Face" title="Hugging Face">
+                    <span class="social-emoji" aria-hidden="true">🤗</span>
+                </a>
+                <a class="social" href="files/CV_JunsungPark.pdf" aria-label="CV" title="CV">
+                    <svg viewBox="0 0 384 512" aria-hidden="true"><path d="M64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zm192 0v128h128L256 0zM112 256h160c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64h160c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64h160c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main class="content" style="padding-bottom: 64px;">
+    <section>
+        <p>
+            I am an undergraduate student at <a href="https://www.snu.ac.kr/">Seoul National University (SNU)</a>, majoring in <a href="https://ece.snu.ac.kr/en">Electrical and Computer Engineering</a> with a minor in Mechanical Engineering.
+        </p>
+        <p>
+            Currently, I am conducting research with Prof. <a href="https://xiaolonw.github.io/index.html">Xiaolong Wang</a> at <a href="https://ucsd.edu/">UC San Diego</a>.
+        </p>
+        <p>
+            <span class="bold">GPA:</span> Seoul National University: 3.9/4.0 &nbsp;|&nbsp; UC San Diego: 4.0/4.0
+        </p>
+        <p>
+            My research goal is to build <span class="bold">generalizable robot autonomy</span> capable of <span class="bold">robust interaction</span> with humans and objects in dynamic, unstructured environments.
+        </p>
+        <br>
+        <p>I am broadly interested in robot learning, with particular emphasis on the following topics:</p>
+        <div class="interests">
+            <div class="interest">
+                <div class="video-container">
+                    <video autoplay loop muted playsinline preload="metadata" aria-label="Robot learning demonstration">
+                        <source src="files/g1_inf.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="interest-text">
+                    <span class="bold">Robot learning</span><br>
+                    Reinforcement learning and learning-based control
+                </div>
+            </div>
+            <div class="interest">
+                <div class="video-container">
+                    <video autoplay loop muted playsinline preload="metadata" aria-label="Cross-embodiment robot demonstration">
+                        <source src="files/g1_retarget.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="interest-text">
+                    <span class="bold">Generalizable autonomy</span><br>
+                    Vision–language–action models and cross-embodiment manipulation
+                </div>
+            </div>
+            <div class="interest">
+                <div class="video-container">
+                    <video autoplay loop muted playsinline preload="metadata" aria-label="Wearable rehabilitation glove demonstration">
+                        <source src="files/wearable_hand.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="interest-text">
+                    <span class="bold">Human–robot interaction</span><br>
+                    Wearable devices for capturing human intent
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="noselect">Publications and preprints</h2>
+        <p>Papers sorted by recency.</p>
+
+        <div class="publication row">
+            <div class="row-media">
+                <video autoplay loop muted playsinline preload="metadata" aria-label="TACTX project preview">
+                    <source src="files/TACTX.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="row-text">
+                <a class="publication-title bold" href="https://tactx-corl.github.io/">TACTX: Learning Shared Tactile Representations Across Diverse Sensors</a><br>
+                <span class="bold">Junsung Park*</span>, Sachin Bhadang*, Carmelo Sferrazza, Sha Yi, Xiaolong Wang<br>
+                <span class="italic">Submitted to CoRL 2026 (Under Review)</span>, 2026<br>
+                <a class="btn" href="https://tactx-corl.github.io/">project page</a>
+            </div>
+        </div>
+
+        <div class="publication row">
+            <div class="row-media">
+                <video autoplay loop muted playsinline preload="metadata" aria-label="BiCQL-ML project preview">
+                    <source src="files/bicql.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="row-text">
+                <a class="publication-title bold" href="https://arxiv.org/abs/2511.22210">BiCQL-ML: A Bi-Level Conservative Q-Learning Framework for Maximum Likelihood IRL</a><br>
+                <span class="bold">Junsung Park</span><br>
+                <span class="italic">IEEE MIT URTC, Poster Presentation</span>, 2025<br>
+                <a class="btn" href="https://arxiv.org/abs/2511.22210">arXiv</a>
+            </div>
+        </div>
+
+        <div class="publication row">
+            <div class="row-media">
+                <video autoplay loop muted playsinline preload="metadata" aria-label="Modality-augmented fine-tuning project preview">
+                    <source src="files/g1_inf.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="row-text">
+                <a class="publication-title bold" href="https://arxiv.org/abs/2512.01358">Modality-Augmented Fine-Tuning of Foundation Robot Policies for Cross-Embodiment Manipulation on GR1 and G1</a><br>
+                <span class="bold">Junsung Park</span>, Hogun Kee, Songhwai Oh<br>
+                <span class="italic">RSS 2026 Workshop: Tactile Sensing for Robotic Foundation Models</span>, 2026<br>
+                <a class="btn" href="https://arxiv.org/abs/2512.01358">arXiv</a>
+            </div>
+        </div>
+
+        <div class="publication row">
+            <div class="row-media" style="background-image: url(files/TacO.png);" role="img" aria-label="TacO project preview"></div>
+            <div class="row-text">
+                <span class="publication-title bold">TacO: Benchmarking Tactile Sensors for Object Manipulation</span><br>
+                Anya Zorin, Zilin Si, Myungsun Park, <span class="bold">Junsung Park</span>, Alexiy Buynitsky, Sachin Bhadang, Taejun Park, Sohee John Yoon, Yong-Lae Park, Oliver Kroemer, Zeynep Temel, Michael T. Tolley, Sha Yi, Xiaolong Wang<br>
+                <span class="italic">Submitted to CoRL 2026 (Under Review)</span>, 2026
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="noselect">Projects</h2>
+
+        <div class="publication row">
+            <div class="row-media">
+                <video autoplay loop muted playsinline preload="metadata" aria-label="Wearable rehabilitation glove project preview">
+                    <source src="files/wearable_hand.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="row-text">
+                <span class="bold">Wearable Rehabilitation Glove</span><br>
+                <span class="bold">Junsung Park</span>, Injae John, Sungjae Hwang, <a href="https://scholar.google.com/citations?user=kBsTE7AAAAAJ&amp;hl=ko">Yong-Lae Park</a><br>
+                <span class="italic"><a href="https://softrobotics.snu.ac.kr/">Soft Robotics &amp; Bionics Lab (SRBL), Seoul National University</a></span>, 2024<br>
+                Developed a wearable rehabilitation glove for stroke patients, integrating a rack-and-pinion actuator, e-gain soft sensor, and IMU-based feedback control to provide adaptive thumb motion assistance.
+            </div>
+        </div>
+
+        <div class="publication row">
+            <div class="row-media" style="background-image: url(files/g1_data.png);" role="img" aria-label="Unitree G1 dataset preview"></div>
+            <div class="row-text">
+                <a class="bold" href="https://huggingface.co/jnsungp">Unitree G1 Multimodal Manipulation Dataset</a><br>
+                <span class="bold">Junsung Park</span><br>
+                <span class="italic">Open Source Project &amp; Dataset</span>, 2025<br>
+                <a class="btn" href="https://huggingface.co/jnsungp">dataset</a><br>
+                Built a large-scale multimodal dataset-generation pipeline integrating Robosuite, RoboCasa, and cuRobo, producing synchronized RGB-D, contact-force, and proprioceptive data for training foundation robot policies.
+            </div>
+        </div>
+
+        <div class="publication row">
+            <div class="row-media">
+                <video autoplay loop muted playsinline preload="metadata" aria-label="Unitree G1 motion-retargeting project preview">
+                    <source src="files/g1_retarget.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="row-text">
+                <span class="bold">Retargeting Human Motion to Unitree G1</span><br>
+                <span class="bold">Junsung Park</span><br>
+                <span class="italic">Humanoid Imitation Learning Project</span>, 2025<br>
+                Developed a whole-body imitation learning pipeline that retargets human–object interaction motions from the OMOMO Dataset to the Unitree G1 using SMPL-based preprocessing and gradient optimization.
+            </div>
+        </div>
+
+        <div class="publication row">
+            <div class="row-media" style="background-image: url(files/rainwater_system.png);" role="img" aria-label="Active rainwater removal system preview"></div>
+            <div class="row-text">
+                <span class="bold">Active Rainwater Removal System</span><br>
+                <span class="bold">Junsung Park</span>, Hyuntae Hwang, Seungha Woo, Minjae Lee<br>
+                <span class="italic">Mechatronics Design Competition, Awarded</span>, 2023<br>
+                Developed a centrifugal umbrella system that actively removes rainwater using a high-torque motor and rotational airflow. Led the system design and integration, achieving fast water removal, low noise, and portable operation.
+            </div>
+        </div>
+
+        <div class="publication row">
+            <div class="row-media">
+                <video autoplay loop muted playsinline preload="metadata" aria-label="Bird's-eye view semantic mapping project preview">
+                    <source src="files/bev.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="row-text">
+                <span class="bold">Bird’s-Eye View Semantic Mapping in AI2-THOR</span><br>
+                <span class="bold">Junsung Park</span><br>
+                <span class="italic">Scene Understanding &amp; Mapping Project</span>, 2025<br>
+                Built a BEV mapping pipeline in AI2-THOR that converts egocentric RGB-D into depth-based semantic top-down maps. Implemented a Trans4Map-style egocentric-to-allocentric model for accurate online BEV scene reconstruction.
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="noselect">
+        <h2>Contact</h2>
+        You are welcome to contact me regarding my research! My email is <span class="bold">night1115</span> [at] <span class="bold">snu</span> [dot] <span class="bold">ac</span> [dot] <span class="bold">kr</span>.
+    </section>
+</main>
+
+<footer class="footer noselect">
+    <div class="footer-content">
+        &copy; 2026 Junsung Park. Design adapted from <a href="https://www.nicklashansen.com/">Nicklas Hansen</a>.
+    </div>
+</footer>
+</body>
+</html>
