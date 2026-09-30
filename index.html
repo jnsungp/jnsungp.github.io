@@ -139,6 +139,19 @@
 
         <div class="publication row">
             <div class="row-media">
+                <img src="blog/safe-trajectory-tracking/assets/thumb.gif" alt="CEC and tabular GPI tracking a figure-eight past four obstacles on the same noise">
+            </div>
+            <div class="row-text">
+                <a class="bold" href="blog/safe-trajectory-tracking/">Safe Trajectory Tracking under Motion Uncertainty</a><br>
+                <span class="bold">Junsung Park</span><br>
+                <span class="italic">Course project, continued after <a href="https://natanaso.github.io/ece276b/">UCSD ECE 276B</a></span>, 2026<br>
+                <a class="btn" href="blog/safe-trajectory-tracking/">post</a> / <a class="btn" href="https://github.com/jnsungp/safe-trajectory-tracking">code</a><br>
+                Compared receding-horizon CEC with GPU-accelerated policy iteration on a 3.36 M-state MDP for a noisy robot passing a 5 cm gap. Traced GPI's safety to its calibrated collision risk, found it exploited collision checks at sampled positions only, fixed this with a path-aware risk, and built a CEC–GPI hybrid that tracks closer at near-equal safety.
+            </div>
+        </div>
+
+        <div class="publication row">
+            <div class="row-media">
                 <video autoplay loop muted playsinline preload="metadata" aria-label="Wearable rehabilitation glove project preview">
                     <source src="files/wearable_hand.mp4" type="video/mp4">
                 </video>
@@ -197,21 +210,6 @@
                 <span class="bold">Junsung Park</span><br>
                 <span class="italic">Scene Understanding &amp; Mapping Project</span>, 2025<br>
                 Built a BEV mapping pipeline in AI2-THOR that converts egocentric RGB-D into depth-based semantic top-down maps. Implemented a Trans4Map-style egocentric-to-allocentric model for accurate online BEV scene reconstruction.
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <h2 class="noselect">Blog</h2>
-
-        <div class="publication row">
-            <div class="row-media" style="background-image: url(blog/safe-trajectory-tracking/assets/thumb.png);" role="img" aria-label="Safe trajectory tracking post preview"></div>
-            <div class="row-text">
-                <a class="bold" href="blog/safe-trajectory-tracking/">Safe Trajectory Tracking under Motion Uncertainty</a><br>
-                <span class="bold">Junsung Park</span><br>
-                <span class="italic">Blog post, continuing my <a href="https://natanaso.github.io/ece276b/">UCSD ECE 276B</a> project</span>, 2026<br>
-                <a class="btn" href="blog/safe-trajectory-tracking/">post</a> / <a class="btn" href="https://github.com/jnsungp/safe-trajectory-tracking">code</a><br>
-                CEC vs. tabular GPI vs. RBF GPI on noisy trajectory tracking with 200 paired seeds: a five-centimeter gap between obstacles, time to first contact, and where the safety margin comes from.
             </div>
         </div>
     </section>
