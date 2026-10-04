@@ -8,7 +8,76 @@
 <meta name="description" content="Does it help a controller to know about the noise? CEC and GPI on a noisy trajectory-tracking task with a five-centimeter gap: where GPI's margin comes from, why giving CEC the same risk made it worse, and a loophole in how collisions were counted.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Source+Code+Pro&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="post.css">
+<style>
+/* Single-column research-blog layout (in the spirit of seohong.me/blog). */
+@font-face {
+  font-family: 'CMU Typewriter Text';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/npm/computer-modern@0.1.3/fonts/cmu-typewriter-text-500-roman.woff2') format('woff2');
+}
+:root {
+  --ink: #1f2328; --ink2: #555555; --muted: #777777; --rule: #e1e0d9; --table-rule: #222222;
+  --bg: #ffffff; --link: #598be7; --link-hover: #9bb9f1; --code-bg: #f6f8fa; --accent: #598be7;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink: #e8e6e3; --ink2: #c3c2b7; --muted: #a09e96; --rule: #2c2c2a; --table-rule: #d0cec8;
+    --bg: #161615; --link: #7ea6ee; --link-hover: #a9c4f5; --code-bg: #20201e; --accent: #7ea6ee;
+  }
+  :root:not([data-theme="light"]) img.fig { border-radius: 6px; }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink);
+  font-family: 'Source Sans 3', 'Lato', Verdana, Helvetica, sans-serif; font-size: 18px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased; }
+main { max-width: 720px; margin: 0 auto; padding: 0 16px 80px; }
+a { color: var(--link); text-decoration: none; }
+a:hover, a:focus { color: var(--link-hover); }
+.topnote { font-size: 15px; color: var(--ink2); border-bottom: 1px solid var(--rule); padding: 14px 0 10px; }
+h1.title { font-size: 40px; font-weight: 700; text-align: center; line-height: 1.2; margin: 36px 0 12px; text-wrap: balance; }
+.byline { text-align: center; color: var(--ink2); font-size: 16px; margin-bottom: 30px; }
+.byline a { color: var(--ink); font-weight: 600; }
+h2 { font-weight: 300; font-size: 30px; margin: 44px 0 12px; text-wrap: balance; }
+h3 { font-weight: 400; font-size: 22px; margin: 28px 0 8px; }
+p { margin: 0 0 16px; }
+ul, ol { padding-left: 1.3em; }
+li { margin-bottom: 6px; }
+b, strong { font-weight: 600; }
+.tt { font-family: 'CMU Typewriter Text', monospace; font-size-adjust: 0.486; }
+figure { margin: 24px 0; }
+figure img, figure video { display: block; max-width: 100%; height: auto; margin: 0 auto; }
+figure.wide { margin-left: -60px; margin-right: -60px; }
+@media (max-width: 860px) { figure.wide { margin-left: 0; margin-right: 0; } }
+figcaption { font-size: 16px; color: var(--muted); margin-top: 8px; line-height: 1.45; text-align: center; }
+code { font-family: "Source Code Pro", Menlo, Consolas, monospace; font-size: 0.85em;
+  background: var(--code-bg); padding: 1px 4px; border-radius: 4px; }
+details { margin: 14px 0 18px; }
+details > summary { cursor: pointer; font-size: 22px; font-weight: 300; list-style: none; color: var(--ink); }
+details > summary::-webkit-details-marker { display: none; }
+details > summary::before { content: "›"; display: inline-block; margin-right: 10px; transition: transform .15s; }
+details[open] > summary::before { transform: rotate(90deg); }
+details > div { margin-top: 10px; }
+
+/* paper-style tables: typewriter font, horizontal rules only */
+.table-wrap { overflow-x: auto; margin: 0 auto; }
+table.paper { border-collapse: collapse; margin: 0 auto; font-family: 'CMU Typewriter Text', monospace;
+  font-size: 16px; font-variant-numeric: tabular-nums; border-top: 2px solid var(--table-rule);
+  border-bottom: 2px solid var(--table-rule); }
+table.paper th, table.paper td { padding: 5px 14px; text-align: center; white-space: nowrap; font-weight: 400;
+  font-family: 'CMU Typewriter Text', monospace; font-size: 16px; }
+table.paper th:first-child, table.paper td:first-child { text-align: left; }
+table.paper thead tr:last-child th { border-bottom: 1px solid var(--table-rule); }
+table.paper th.group { border-bottom: 1px solid var(--table-rule); }
+table.paper th.gap, table.paper td.gap { padding: 0 4px; border: none; }
+table.paper .hl { color: var(--accent); }
+table.paper.compact th, table.paper.compact td { padding: 5px 9px; }
+.muted { color: var(--muted); }
+.footnote { font-size: 15px; color: var(--ink2); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 36px 0; }
+</style>
 <script>
   window.MathJax = { tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] } };
 </script>
@@ -20,7 +89,7 @@
 <div class="topnote">
   This post documents how I kept developing my project from
   <a href="https://natanaso.github.io/ece276b/">UCSD ECE 276B: Planning &amp; Learning in Robotics</a>
-  after taking the course. &nbsp;·&nbsp; <a href="../../">Home</a> &nbsp;·&nbsp;
+  after taking the course. &nbsp;·&nbsp; <a href="./">Home</a> &nbsp;·&nbsp;
   <a href="https://github.com/jnsungp/safe-trajectory-tracking">Code and data</a>
 </div>
 
@@ -81,11 +150,11 @@ V^*(\tau, e) = \min_\pi \ \mathbb E \Big[\sum_{t \ge \tau} \gamma^{t-\tau} \big(
   A controller can either keep some margin inside the gap or leave the reference and take a longer route around C3.
 </p>
 <figure class="wide">
-  <img class="fig" src="assets/corridor.png" alt="Twenty noisy rollouts of CEC, tabular GPI and RBF GPI near the C1–C3 gap">
+  <img class="fig" src="files/stt_corridor.png" alt="Twenty noisy rollouts of CEC, tabular GPI and RBF GPI near the C1–C3 gap">
   <figcaption>The right-hand lobe at noise ×1, twenty seeds. Dashed circles are the inflated obstacles, and the dotted curve is the reference. CEC hugs the boundary through the gap, tabular GPI takes the inner route, and RBF GPI goes through the gap with a large tracking error.</figcaption>
 </figure>
 <figure class="wide">
-  <img src="assets/rollout_k1.gif" alt="Animated side-by-side rollouts of CEC, tabular GPI and RBF GPI on the same noise realization">
+  <img src="files/stt_rollout_k1.gif" alt="Animated side-by-side rollouts of CEC, tabular GPI and RBF GPI on the same noise realization">
   <figcaption>The same noise realization (×1, seed 0) for all three controllers. The white triangle is the reference; the ring around the robot turns bold black while it is in collision.</figcaption>
 </figure>
 
@@ -111,7 +180,7 @@ V^*(\tau, e) = \min_\pi \ \mathbb E \Big[\sum_{t \ge \tau} \gamma^{t-\tau} \big(
   The most accurate way to follow this reference runs through an obstacle, so accuracy and safety pull in opposite directions.
 </p>
 <figure class="wide">
-  <img class="fig" src="assets/survival.png" alt="Fraction of episodes without a collision over time at noise 0.5 and 1">
+  <img class="fig" src="files/stt_survival.png" alt="Fraction of episodes without a collision over time at noise 0.5 and 1">
   <figcaption>Fraction of episodes that have not yet collided. Shaded bands mark the times when the reference passes through the inflated C1 and C2.</figcaption>
 </figure>
 <p>
@@ -128,7 +197,7 @@ V^*(\tau, e) = \min_\pi \ \mathbb E \Big[\sum_{t \ge \tau} \gamma^{t-\tau} \big(
   One more detail that I did not think much of at the time: at ×0.5 and ×1, GPI crosses the gaps it uses at full speed.
 </p>
 <figure class="wide">
-  <img class="fig" src="assets/noise_sweep.png" alt="Tracking error, collision rate and steps until first collision across noise scales">
+  <img class="fig" src="files/stt_noise_sweep.png" alt="Tracking error, collision rate and steps until first collision across noise scales">
   <figcaption>Tracking error, collision rate and mean steps until the first collision versus noise scale. Shading shows 95% intervals; noise ×0 is a single deterministic run.</figcaption>
 </figure>
 
@@ -162,7 +231,7 @@ V^*(\tau, e) = \min_\pi \ \mathbb E \Big[\sum_{t \ge \tau} \gamma^{t-\tau} \big(
   The usual way to make it more careful is a safety margin: tighten every obstacle constraint by m.
 </p>
 <figure>
-  <img class="fig" src="assets/frontier.png" alt="Collision rate versus tracking error for CEC with safety margins and tabular GPI with different risk penalties">
+  <img class="fig" src="files/stt_frontier.png" alt="Collision rate versus tracking error for CEC with safety margins and tabular GPI with different risk penalties">
   <figcaption>Each point is a separately configured controller evaluated on the same 200 episodes at noise ×1.</figcaption>
 </figure>
 <p>
@@ -213,7 +282,7 @@ V^*(\tau, e) = \min_\pi \ \mathbb E \Big[\sum_{t \ge \tau} \gamma^{t-\tau} \big(
   Nothing then pushes the plan back out, and the controller follows the reference straight through C1, 40 cm deep in the median episode; it does the same without any noise.
 </p>
 <figure class="wide">
-  <img class="fig" src="assets/riskcec_plan.png" alt="The risk-aware CEC's ten-step plan into C1, the plan with obstacle constraints, and the planned positions on the collision-probability curve">
+  <img class="fig" src="files/stt_riskcec_plan.png" alt="The risk-aware CEC's ten-step plan into C1, the plan with obstacle constraints, and the planned positions on the collision-probability curve">
   <figcaption>Noise ×0.25, seed 0, step 13, six steps before the robot enters C1. Circles are the ten planned positions, shaded by the collision probability each one is assigned (white 0, black 1), and the thin dotted orange line is where the robot then went. <b>Left:</b> the plan steps from just outside the inflated C1 to deep inside it and follows the reference through. <b>Middle:</b> with the obstacle constraints kept, the plan stays outside and bends into the C1–C3 gap. <b>Right:</b> the left plan's positions on the probability curve; none of them lies in the ±3σ band where the curve has a slope.</figcaption>
 </figure>
 <p>
@@ -228,7 +297,7 @@ V^*(\tau, e) = \min_\pi \ \mathbb E \Big[\sum_{t \ge \tau} \gamma^{t-\tau} \big(
   With the value as the terminal cost, as in POLO (<a href="https://arxiv.org/abs/1811.01848">Lowrey et al., 2019</a>), the stall disappears and the tracking error falls to 35 cm.
 </p>
 <figure class="wide">
-  <img src="assets/riskcec_stall.gif" alt="Animated rollouts at noise 1: the risk-aware CEC stalls, the version with GPI's value keeps up, and tabular GPI">
+  <img src="files/stt_riskcec_stall.gif" alt="Animated rollouts at noise 1: the risk-aware CEC stalls, the version with GPI's value keeps up, and tabular GPI">
   <figcaption>Noise ×1, seed 0. Open circles are the plan each controller executes at that step, and the white triangle is the reference. With only the ten-step window (left), the plan curls up at the minimum speed at the passes of C1 and C2, and the robot falls far behind; with GPI's value as the terminal cost (middle), it keeps up.</figcaption>
 </figure>
 <details>
@@ -258,7 +327,7 @@ V^*(\tau, e) = \min_\pi \ \mathbb E \Big[\sum_{t \ge \tau} \gamma^{t-\tau} \big(
   The conclusion does not hinge on how the noise is blended in: the commanded arcs alone, without any noise, enter an obstacle in 62.5% of episodes at ×0.5 and 77% at ×1.
 </p>
 <figure class="wide">
-  <img class="fig" src="assets/gap_dash.png" alt="GPI's samples and paths at the C2-C4 gap, and collision rates counted at samples and along the path">
+  <img class="fig" src="files/stt_gap_dash.png" alt="GPI's samples and paths at the C2-C4 gap, and collision rates counted at samples and along the path">
   <figcaption><b>Left:</b> twelve crossings of the C2–C4 gap by tabular GPI at noise ×0.5. Dots are the samples, lines the paths between them, and black marks where a path is inside an inflated obstacle. <b>Right:</b> collision rate over 200 episodes, counted at the samples and along the path; shading shows 95% intervals.</figcaption>
 </figure>
 <p>
@@ -273,7 +342,7 @@ V^*(\tau, e) = \min_\pi \ \mathbb E \Big[\sum_{t \ge \tau} \gamma^{t-\tau} \big(
   I retrained GPI with it at every noise level, about three minutes per policy.
 </p>
 <figure class="wide">
-  <img class="fig" src="assets/path_sweep.png" alt="Tracking error, collision rate along the path and steps until the first collision for CEC, GPI with each risk, and the hybrid">
+  <img class="fig" src="files/stt_path_sweep.png" alt="Tracking error, collision rate along the path and steps until the first collision for CEC, GPI with each risk, and the hybrid">
   <figcaption>Collisions counted along the path; 200 paired episodes per point, shading shows 95% intervals. CEC here also constrains four points along each step of its plan. The hybrid is introduced in the next section.</figcaption>
 </figure>
 <p>
@@ -293,7 +362,7 @@ V^*(\tau, e) = \min_\pi \ \mathbb E \Big[\sum_{t \ge \tau} \gamma^{t-\tau} \big(
   At every step, IPOPT also starts from ten steps of the GPI policy, and the controller keeps the cheaper solution. I'll call this the hybrid.
 </p>
 <figure class="wide">
-  <img src="assets/hybrid_route.gif" alt="Animated left-hand lobe at noise 1 for the risk-aware CEC with GPI's value, the hybrid, and path-aware GPI">
+  <img src="files/stt_hybrid_route.gif" alt="Animated left-hand lobe at noise 1 for the risk-aware CEC with GPI's value, the hybrid, and path-aware GPI">
   <figcaption>Noise ×1, the left-hand lobe, all with the path-aware risk; seed 0 is animated over nineteen other seeds. Open circles are the executed plan, and the dashed gray plan is the hybrid's other start. The two CEC variants move identically until the top of the lobe, where the plan started from GPI becomes much cheaper; the hybrid switches to it and turns back like GPI.</figcaption>
 </figure>
 <p>
@@ -323,7 +392,7 @@ V^*(\tau, e) = \min_\pi \ \mathbb E \Big[\sum_{t \ge \tau} \gamma^{t-\tau} \big(
   This is the case the earlier ablation could not see: once the risk looks along the path and the noise reaches 8 cm per step, the noise in the transition matters after all.
 </p>
 <figure>
-  <img class="fig" src="assets/path_frontier.png" alt="Collision rate along the path versus tracking error at noise 1 for CEC margins, GPI with each risk, and the hybrid">
+  <img class="fig" src="files/stt_path_frontier.png" alt="Collision rate along the path versus tracking error at noise 1 for CEC margins, GPI with each risk, and the hybrid">
   <figcaption>Each point is a separately configured controller evaluated on the same 200 episodes at noise ×1, with collisions counted along the path. The dashed curve is GPI's earlier λ sweep, recounted along the path.</figcaption>
 </figure>
 <p>
@@ -339,7 +408,7 @@ V^*(\tau, e) = \min_\pi \ \mathbb E \Big[\sum_{t \ge \tau} \gamma^{t-\tau} \big(
   It costs safety at every noise level: 44.5% against 5.5% collisions at noise ×0.5, and 91.5% against 41.5% at ×1.
 </p>
 <figure class="wide">
-  <img class="fig" src="assets/value_rbf.png" alt="Value along a line through an obstacle, mean value during GPI, and collision rate for tabular and RBF value functions">
+  <img class="fig" src="files/stt_value_rbf.png" alt="Value along a line through an obstacle, mean value during GPI, and collision rate for tabular and RBF value functions">
   <figcaption><b>Left:</b> the value along a line through the inflated obstacle C1, just before the robot reaches it. <b>Middle:</b> the mean value over GPI iterations. <b>Right:</b> collision rate. The least-squares fit is left out of the right panel because it does not track the reference at all.</figcaption>
 </figure>
 <p>
@@ -353,7 +422,7 @@ V^*(\tau, e) = \min_\pi \ \mathbb E \Big[\sum_{t \ge \tau} \gamma^{t-\tau} \big(
   <div>
     <p>The default episode starts the robot two reference steps ahead of its clock (a 0.56 m initial error) and runs for 2.4 periods of the figure-eight. From four other starting phases, with the robot exactly on the reference and exactly two periods each, CEC collides in all 200 episodes from every phase, tabular GPI in 42–50.5%, and RBF GPI in 82.5–86%; the differences between phases are within the 95% intervals.</p>
     <figure>
-      <img class="fig" src="assets/phase.png" alt="Collision rate for four aligned starting phases over two reference periods">
+      <img class="fig" src="files/stt_phase.png" alt="Collision rate for four aligned starting phases over two reference periods">
       <figcaption>Noise ×1, 200 paired episodes per point; bars show 95% intervals.</figcaption>
     </figure>
     <p>Online, CEC needs 5.36 ms per step, tabular GPI with a one-step lookahead 1.26 ms, and RBF GPI 1.23 ms (single process, mean over three episodes), all far below the 500 ms control period. GPI moves the hard work offline: one sweep over the 3.36 M-state grid takes about 8.5 s on an L40S, and a full policy takes a few minutes.</p>
