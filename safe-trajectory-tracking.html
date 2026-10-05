@@ -87,10 +87,9 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 36px 0; }
 <main>
 
 <div class="topnote">
-  This post documents how I kept developing my project from
+  This page documents how I kept developing my project from
   <a href="https://natanaso.github.io/ece276b/">UCSD ECE 276B: Planning &amp; Learning in Robotics</a>
-  after taking the course. &nbsp;·&nbsp; <a href="./">Home</a> &nbsp;·&nbsp;
-  <a href="https://github.com/jnsungp/safe-trajectory-tracking">Code and data</a>
+  after taking the course. &nbsp;·&nbsp; <a href="./">Home</a>
 </div>
 
 <h1 class="title">Safe Trajectory Tracking under Motion Uncertainty</h1>
@@ -109,7 +108,7 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 36px 0; }
   GPI keeps a margin, and an ablation says the margin comes from its calibrated collision probability.
   But giving CEC that same probability made it worse.
   While chasing the difference that remained, I found that part of GPI's safety was a loophole: it had learned to cross the gap at full speed, so that its two samples land on either side of it.
-  This post follows the investigation in the order it happened.
+  This page follows the investigation in the order it happened.
 </p>
 
 <h2>The setup</h2>
@@ -368,7 +367,7 @@ V^*(\tau, e) = \min_\pi \ \mathbb E \Big[\sum_{t \ge \tau} \gamma^{t-\tau} \big(
 <p>
   At noise ×1 the hybrid collides along the path in 4% of episodes and tracks 9 cm closer to the reference than path-aware GPI (35 against 44 cm, closer in every one of the 200 paired episodes).
   At ×0.25 and ×0.5 it is both safer and closer: 0.5% against 11% and 52% against 64% of episodes with a collision along the path, at 6.5 against 10.0 cm and 8.4 against 12.9 cm.
-  The noise ×1 result holds on seeds used nowhere else in this post.
+  The noise ×1 result holds on seeds used nowhere else on this page.
 </p>
 <figure>
 <div class="table-wrap"><table class="paper">
@@ -450,11 +449,6 @@ V^*(\tau, e) = \min_\pi \ \mathbb E \Big[\sum_{t \ge \tau} \gamma^{t-\tau} \big(
   <li>The hybrid is not a standalone CEC: it relies on GPI's offline value function and policy, and a different local optimizer might need less help.</li>
   <li>The λ sweeps and most checks reuse seeds 0–199; only the headline controllers were rerun on unseen seeds 1000–1199.</li>
 </ul>
-
-<h2>Code and data</h2>
-<p>
-  Everything is at <a href="https://github.com/jnsungp/safe-trajectory-tracking">github.com/jnsungp/safe-trajectory-tracking</a>: the controllers, the GPU implementation of GPI, the experiment runner, the analysis and figure scripts, and the aggregate results behind every number in this post.
-</p>
 
 <hr>
 <p class="footnote">
