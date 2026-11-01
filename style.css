@@ -28,6 +28,8 @@ p {line-height: 1.5em;}
 .lightbox-close {position: absolute; top: 12px; right: 16px; color: #fff; font-size: 32px; line-height: 1; opacity: 0.8;}
 .row-text {margin-left: 16px; line-height: 1.5em; min-width: 0;}
 .row-text span {line-height: inherit;}
+.section-header {display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; column-gap: 16px;}
+.section-hint {color: #999; font-size: 0.85em; margin-bottom: 16px;}
 .publication {margin-bottom: 36px; padding: 8px; border-radius: 6px;}
 .publication.highlight {background: linear-gradient(135deg, #f1e9fb, #e4d6f4); width: 100%; border-radius: 10px;}
 .publication.highlight a:not(.btn-feature) {color: #75409c;}
