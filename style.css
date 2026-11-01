@@ -19,6 +19,13 @@ p {line-height: 1.5em;}
 .row {display: flex; align-items: flex-start; box-sizing: border-box;}
 .row-media {flex-shrink: 0; width: 200px; height: 112px; background-position: center; background-size: contain; background-repeat: no-repeat; overflow: hidden;}
 .row-media video, .row-media img {display: block; width: 100%; height: 100%; object-fit: contain;}
+.row-media {cursor: zoom-in;}
+.lightbox {position: fixed; inset: 0; z-index: 200; display: none; align-items: center; justify-content: center; background: rgba(20,26,32,0.88); cursor: zoom-out;}
+.lightbox.open {display: flex;}
+.lightbox img, .lightbox video {display: block; width: min(92vw, calc(88vh * var(--ratio, 1.78))); height: auto; aspect-ratio: var(--ratio, 1.78); border-radius: 6px; opacity: 0; transition: opacity 0.2s;}
+.lightbox img {background: #fff;}
+.lightbox .ready {opacity: 1;}
+.lightbox-close {position: absolute; top: 12px; right: 16px; color: #fff; font-size: 32px; line-height: 1; opacity: 0.8;}
 .row-text {margin-left: 16px; line-height: 1.5em; min-width: 0;}
 .row-text span {line-height: inherit;}
 .publication {margin-bottom: 36px; padding: 8px; border-radius: 6px;}

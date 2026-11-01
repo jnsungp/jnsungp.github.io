@@ -24,7 +24,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap">
-    <link rel="stylesheet" href="style.css?v=1.0">
+    <link rel="stylesheet" href="style.css?v=1.1">
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var header = document.querySelector(".header");
@@ -33,6 +33,69 @@
                 nav.classList.toggle("visible", !entries[0].isIntersecting);
             }, {threshold: 0});
             observer.observe(header);
+
+            var lightbox = document.createElement("div");
+            lightbox.className = "lightbox";
+            lightbox.tabIndex = -1;
+            lightbox.setAttribute("role", "dialog");
+            lightbox.setAttribute("aria-modal", "true");
+            lightbox.setAttribute("aria-label", "Enlarged media");
+            document.body.appendChild(lightbox);
+            var opener = null;
+
+            function show(el, w, h) {
+                el.style.setProperty("--ratio", w / h);
+                el.classList.add("ready");
+            }
+            function openLightbox(media) {
+                var child = media.querySelector("video, img");
+                var el;
+                if (child && child.tagName === "VIDEO") {
+                    // Move the playing thumbnail itself so it shows instantly; it goes back on close.
+                    el = child;
+                    show(el, el.videoWidth || 16, el.videoHeight || 9);
+                } else {
+                    el = document.createElement("img");
+                    el.alt = child ? child.alt : media.getAttribute("aria-label");
+                    el.addEventListener("load", function() { show(el, el.naturalWidth, el.naturalHeight); });
+                    el.src = child ? child.currentSrc || child.src : getComputedStyle(media).backgroundImage.match(/url\(["']?(.*?)["']?\)/)[1];
+                }
+                var close = document.createElement("span");
+                close.className = "lightbox-close";
+                close.setAttribute("aria-hidden", "true");
+                close.textContent = "×";
+                lightbox.replaceChildren(el, close);
+                lightbox.classList.add("open");
+                document.body.style.overflow = "hidden";
+                opener = media;
+                lightbox.focus();
+            }
+            function closeLightbox() {
+                var video = lightbox.querySelector("video");
+                if (video) {
+                    opener.appendChild(video);
+                    video.play().catch(function() {});
+                }
+                lightbox.classList.remove("open");
+                lightbox.replaceChildren();
+                document.body.style.overflow = "";
+                if (opener) opener.focus();
+            }
+            lightbox.addEventListener("click", closeLightbox);
+            document.addEventListener("keydown", function(e) {
+                if (e.key === "Escape" && lightbox.classList.contains("open")) closeLightbox();
+            });
+            document.querySelectorAll(".row-media").forEach(function(media) {
+                var child = media.querySelector("video, img");
+                var label = media.getAttribute("aria-label") || (child && (child.getAttribute("aria-label") || child.alt));
+                media.tabIndex = 0;
+                media.setAttribute("role", "button");
+                if (label) media.setAttribute("aria-label", "Enlarge: " + label);
+                media.addEventListener("click", function() { openLightbox(media); });
+                media.addEventListener("keydown", function(e) {
+                    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openLightbox(media); }
+                });
+            });
         });
     </script>
 </head>
