@@ -4,12 +4,12 @@ h1 {margin-bottom: 32px; font-size: 2.4em;}
 h2 {margin-top: 48px; font-size: 1.6em;}
 h1, h2 {color: #345;}
 * {font-weight: normal; font-family: Inter, system-ui, Roboto, 'Helvetica Neue', Helvetica, sans-serif;}
-.header {width: 100%; padding-top: 24px; padding-bottom: 0;}
-.header-div {border-bottom: #e0e0e0 1px solid; padding-bottom: 20px; display: flex; align-items: flex-start;}
-.header-profile-picture {width: 150px; height: 150px; flex-shrink: 0; margin-right: 24px; border-radius: 50%; background-image: url(files/JunsungPark.jpg); background-position: center 10%; background-size: cover; background-repeat: no-repeat;}
-.header-text {align-self: center;}
-.header-name h1 {margin-top: 0; margin-bottom: 6px; line-height: 1.1;}
-.header-subtitle {margin-bottom: 10px;}
+.hero {display: flow-root;}
+.hero h1 {margin-top: 0; margin-bottom: 24px;}
+.portrait {float: right; width: 270px; height: auto; aspect-ratio: 5 / 6; object-fit: cover; object-position: center top; margin: 4px 0 20px 30px;}
+.social-links {clear: both; display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 20px; font-size: 14px;}
+.social-link {display: inline-block; padding: 4px 10px; border-radius: 4px; color: #007d69; background: #e5f4f1; transition: background-color 0.14s, color 0.14s;}
+.social-link:hover, .social-link:focus-visible {color: #fff; background: #007d69;}
 .content {max-width: 860px; padding-left: 16px; padding-right: 16px; margin: 48px auto 0;}
 a {color: #2471a3; text-decoration: none; transition: color 0.2s;}
 a:focus, a:hover {color: #f09228;}
@@ -32,7 +32,7 @@ p {line-height: 1.5em;}
 .section-header {display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; column-gap: 16px;}
 .section-hint {color: #999; font-size: 0.85em; margin-bottom: 16px;}
 .question {color: #75409c; background: #f1e9fb; padding: 0.08em 0.25em; border-radius: 3px; -webkit-box-decoration-break: clone; box-decoration-break: clone;}
-.notice {background: #fdeeee; color: #a33a3a; padding: 8px 14px; border-radius: 8px;}
+.notice {display: flow-root; background: #fdeeee; color: #a33a3a; padding: 8px 14px; border-radius: 8px;}
 .publication {margin-bottom: 36px; padding: 8px; border-radius: 6px;}
 .publication.highlight {background: linear-gradient(135deg, #f1e9fb, #e4d6f4); width: 100%; border-radius: 10px;}
 .publication.highlight .publication-title, .publication.highlight a:not(.btn-feature) {color: #75409c;}
@@ -44,7 +44,6 @@ p {line-height: 1.5em;}
 .sticky-nav-content {max-width: 860px; margin: auto; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between;}
 .sticky-nav-name {color: #345; font-size: 16px; text-decoration: none;}
 .sticky-nav-name:hover {color: #345;}
-.header-links {display: flex; flex-wrap: wrap; align-items: center; gap: 16px;}
 .sticky-nav-links {display: flex; gap: 16px;}
 .sticky-nav-links a {color: #2471a3; text-decoration: none; transition: color 0.2s;}
 .sticky-nav-links a:hover {color: #f09228;}
@@ -54,8 +53,6 @@ p {line-height: 1.5em;}
 .footer-content a:hover {color: #666 !important;}
 
 @media only screen and (max-width: 1150px) {
-    .header-div {flex-direction: column; align-items: center; text-align: center;}
-    .header-profile-picture {margin: 0 auto 22px; width: 180px; height: 180px;}
     body {font-size: 18px;}
     a.btn {font-size: 14px; padding: 2px 6px;}
 }
@@ -65,7 +62,10 @@ p {line-height: 1.5em;}
     .publication.row {flex-direction: column; align-items: center;}
     .publication .row-media {width: 100%; max-width: 400px; height: 158px; margin-bottom: 12px;}
     .publication .row-text {width: 100%; margin-left: 0;}
-    .header-links {justify-content: center; margin-left: 0;}
+}
+
+@media only screen and (max-width: 650px) {
+    .portrait {width: 34%; max-width: 200px; margin-left: 20px;}
 }
 
 @media only screen and (max-width: 600px) {

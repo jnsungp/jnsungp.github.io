@@ -24,10 +24,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap">
-    <link rel="stylesheet" href="style.css?v=1.6">
+    <link rel="stylesheet" href="style.css?v=1.7">
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            var header = document.querySelector(".header");
+            var header = document.querySelector(".hero h1");
             var nav = document.getElementById("sticky-nav");
             var observer = new IntersectionObserver(function(entries) {
                 nav.classList.toggle("visible", !entries[0].isIntersecting);
@@ -106,34 +106,16 @@
         <div class="sticky-nav-links">
             <a href="https://scholar.google.com/citations?user=Fz-c3OYAAAAJ&amp;hl=ko">Scholar</a>
             <a href="https://www.linkedin.com/in/junsung-park-26a34b33b/">LinkedIn</a>
-            <a href="mailto:night1115@snu.ac.kr">Gmail</a>
+            <a href="mailto:night1115@snu.ac.kr">Email</a>
             <a href="files/CV_JunsungPark.pdf">CV</a>
         </div>
     </div>
 </nav>
 
-<div class="header noselect">
-    <div class="header-div content row">
-        <div class="header-profile-picture" role="img" aria-label="Portrait of Junsung Park"></div>
-        <div class="header-text">
-            <div class="header-name">
-                <h1>Junsung Park</h1>
-            </div>
-            <div class="header-subtitle">
-                Undergraduate student at Seoul National University
-            </div>
-            <div class="header-links">
-                <a href="https://scholar.google.com/citations?user=Fz-c3OYAAAAJ&amp;hl=ko">Google Scholar</a>
-                <a href="https://www.linkedin.com/in/junsung-park-26a34b33b/">LinkedIn</a>
-                <a href="mailto:night1115@snu.ac.kr">Gmail</a>
-                <a href="files/CV_JunsungPark.pdf">CV</a>
-            </div>
-        </div>
-    </div>
-</div>
-
 <main class="content" style="padding-bottom: 64px;">
-    <section>
+    <section class="hero">
+        <h1>Junsung Park</h1>
+        <img class="portrait" src="files/JunsungPark.jpg" width="300" height="360" alt="Portrait of Junsung Park" fetchpriority="high">
         <p>
             I'm Junsung Park, an undergraduate student at <a href="https://www.snu.ac.kr/">Seoul National University (SNU)</a>, majoring in <a href="https://ece.snu.ac.kr/en">Electrical and Computer Engineering</a> with a minor in <a href="https://me.snu.ac.kr/en/">Mechanical Engineering</a>.
         </p>
@@ -173,6 +155,12 @@
             My overarching research goal is to develop <span class="bold">uncertainty-aware planning and control</span> algorithms that enable robots to continuously learn from their interactions with the physical world and acquire the physical intuition and adaptive capabilities needed for <span class="bold">human-like manipulation</span>. In particular, I study how robots can leverage <span class="bold">multimodal perception</span>—including vision, tactile sensing, force feedback, and proprioception—to control physical interactions in contact-rich settings, with the broader goal of enabling robots to execute complex tasks and assist people.
         </p>
         -->
+        <div class="social-links">
+            <a class="social-link" href="mailto:night1115@snu.ac.kr">Email</a>
+            <a class="social-link" href="https://scholar.google.com/citations?user=Fz-c3OYAAAAJ&amp;hl=ko">Scholar</a>
+            <a class="social-link" href="files/CV_JunsungPark.pdf">CV</a>
+            <a class="social-link" href="https://www.linkedin.com/in/junsung-park-26a34b33b/">LinkedIn</a>
+        </div>
     </section>
 
     <section>
