@@ -24,15 +24,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Roboto:ital,wght@0,300;0,400;0,700;1,300&amp;display=swap">
-    <link rel="stylesheet" href="style.css?v=1.8">
+    <link rel="stylesheet" href="style.css?v=1.9">
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            var header = document.querySelector(".hero h1");
-            var nav = document.getElementById("sticky-nav");
-            var observer = new IntersectionObserver(function(entries) {
-                nav.classList.toggle("visible", !entries[0].isIntersecting);
-            }, {threshold: 0});
-            observer.observe(header);
+            var header = document.querySelector(".site-header");
+            var navLinks = document.querySelectorAll(".site-nav a");
+            function markSection() {
+                var y = window.scrollY + header.offsetHeight + 40;
+                var current = navLinks[0];
+                navLinks.forEach(function(link) {
+                    if (document.getElementById(link.dataset.section).offsetTop <= y) current = link;
+                });
+                navLinks.forEach(function(link) {
+                    if (link === current) link.setAttribute("aria-current", "location");
+                    else link.removeAttribute("aria-current");
+                });
+            }
+            window.addEventListener("scroll", markSection, {passive: true});
+            markSection();
 
             var lightbox = document.createElement("div");
             lightbox.className = "lightbox";
@@ -100,20 +109,19 @@
     </script>
 </head>
 <body>
-<nav class="sticky-nav noselect" id="sticky-nav">
-    <div class="sticky-nav-content">
-        <a class="sticky-nav-name bold" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">Junsung Park</a>
-        <div class="sticky-nav-links">
-            <a href="https://scholar.google.com/citations?user=Fz-c3OYAAAAJ&amp;hl=ko">Scholar</a>
-            <a href="https://www.linkedin.com/in/junsung-park-26a34b33b/">LinkedIn</a>
-            <a href="mailto:night1115@snu.ac.kr">Email</a>
-            <a href="files/CV_JunsungPark.pdf">CV</a>
-        </div>
+<header class="site-header noselect">
+    <div class="nav-inner">
+        <a class="brand" href="#">Junsung Park</a>
+        <nav class="site-nav" aria-label="Sections">
+            <a href="#" data-section="home">Home</a>
+            <a href="#publications" data-section="publications">Publications</a>
+            <a href="#projects" data-section="projects">Projects</a>
+        </nav>
     </div>
-</nav>
+</header>
 
 <main class="content" style="padding-bottom: 64px;">
-    <section class="hero">
+    <section class="hero" id="home">
         <h1>Junsung Park</h1>
         <img class="portrait" src="files/JunsungPark.jpg" width="300" height="360" alt="Portrait of Junsung Park" fetchpriority="high">
         <p>
@@ -163,7 +171,7 @@
         </div>
     </section>
 
-    <section>
+    <section id="publications">
         <div class="section-header noselect">
             <h2>Publications</h2>
             <span class="section-hint">Click any image or video to enlarge.</span>
@@ -235,7 +243,7 @@
         </div>
     </section>
 
-    <section>
+    <section id="projects">
         <h2 class="noselect">Projects</h2>
 
         <div class="highlight publication row">
